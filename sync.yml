@@ -1,0 +1,45 @@
+name: Sync publications
+
+# Runs every Monday at 06:00 UTC (11:30 IST), and whenever you press
+# the "Run workflow" button on the Actions tab.
+on:
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-publications
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the site
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Fetch from ORCID and OpenAlex
+        env:
+          ORCID_ID: "0009-0006-6127-2044"
+          CONTACT_EMAIL: "vikrantdubeycup@gmail.com"
+        run: node scripts/sync.mjs
+
+      - name: Commit anything that changed
+        run: |
+          git config user.name "publication-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add publications.json stats.json 2>/dev/null || true
+          if git diff --staged --quiet; then
+            echo "Nothing new this week."
+          else
+            git commit -m "Sync publications ($(date -u +%Y-%m-%d))"
+            git push
+          fi
