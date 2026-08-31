@@ -63,11 +63,29 @@ function tidyTitle(s) {
   return t;
 }
 
-async function getJSON(url, tries = 3) {
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+/* Shared CI machines get rate limited by OpenAlex fairly often, so this
+   waits properly rather than giving up after a few seconds. */
+async function getJSON(url, tries = 5) {
+  const backoff = [2000, 5000, 12000, 25000, 40000];
   for (let i = 0; i < tries; i++) {
     try {
       const r = await fetch(url, { headers: { Accept: "application/json", "User-Agent": UA } });
       if (r.status === 404) return null;
+
+      if (r.status === 429 || r.status >= 500) {
+        const retryAfter = +(r.headers.get("retry-after") || 0) * 1000;
+        const wait = Math.max(retryAfter, backoff[i]);
+        if (i === tries - 1) {
+          console.warn(`  ! ${r.status} from ${url} after ${tries} tries, moving on`);
+          return null;
+        }
+        console.warn(`  · ${r.status}, waiting ${Math.round(wait / 1000)}s then retrying`);
+        await sleep(wait);
+        continue;
+      }
+
       if (!r.ok) throw new Error("HTTP " + r.status);
       return await r.json();
     } catch (err) {
@@ -75,12 +93,25 @@ async function getJSON(url, tries = 3) {
         console.warn("  ! gave up on", url, "-", err.message);
         return null;
       }
-      await new Promise((r) => setTimeout(r, 1200 * (i + 1)));
+      await sleep(backoff[i]);
     }
   }
 }
 
 /* ---------- read the hand-written baseline out of data.js ---------- */
+
+/* Last week's results. Keeping these means one rate-limited run cannot
+   wipe citation counts back to zero. */
+function readPrevious() {
+  const f = join(ROOT, "publications.json");
+  if (!existsSync(f)) return [];
+  try {
+    const prev = JSON.parse(readFileSync(f, "utf8"));
+    return Array.isArray(prev) ? prev : [];
+  } catch {
+    return [];
+  }
+}
 
 function readBaseline() {
   try {
@@ -258,14 +289,20 @@ function merge(baseline, fetched) {
 const baseline = readBaseline();
 log(`data.js baseline: ${baseline.length} publications`);
 
-const [orcid, openalex] = await Promise.all([fromOrcid(), fromOpenAlex()]);
+const previous = readPrevious();
+if (previous.length) log(`carrying over ${previous.length} from last run`);
 
-if (!orcid.length && !openalex.length) {
-  console.error("Both sources returned nothing. Leaving the existing files alone.");
+// one at a time, so we are not hitting both APIs in the same instant
+const orcid = await fromOrcid();
+await sleep(1500);
+const openalex = await fromOpenAlex();
+
+if (!orcid.length && !openalex.length && !previous.length) {
+  console.error("Nothing came back and there is nothing to fall back on. Leaving files alone.");
   process.exit(0);
 }
 
-const pubs = merge(baseline, [...orcid, ...openalex]);
+const pubs = merge(baseline, [...previous, ...orcid, ...openalex]);
 
 const coauthors = new Set();
 for (const p of pubs) {
