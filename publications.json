@@ -6,10 +6,10 @@
     "date": "September 2026",
     "venue": "DESIDOC Journal of Library & Information Technology",
     "authors": "Vikrant Dubey, Shilpi Verma",
-    "abstract": "",
+    "abstract": "The recent digital revolution of Library and Information Science (LIS) has transformed bibliographic data into huge datasets, which have no organised structure and can only be explored through sophisticated analytical systems. This paper uses Latent Dirichlet Allocation (LDA) topic modeling of 279 publications (1974-2024) of Scopus indexed publications on emerging library trends. After undergoing…",
     "doi": "10.14429/djlit.21404",
     "url": "https://doi.org/10.14429/djlit.21404",
-    "openAccess": false,
+    "openAccess": true,
     "citations": 0
   },
   {
@@ -19,10 +19,36 @@
     "date": "September 2026",
     "venue": "Library Hi Tech",
     "authors": "Shweta Verma, Vikrant Dubey, Shilpi Verma",
-    "abstract": "",
+    "abstract": "Purpose This study examines how Library and Information Science (LIS) professionals use LinkedIn for scholarly engagement, treating professional visibility, research communication and academic networking as related but conceptually distinct dimensions of that engagement. Design/methodology/approach This quantitative study used a structured online questionnaire, distributed via non-probability…",
     "doi": "10.1108/lht-08-2025-0203",
     "url": "https://doi.org/10.1108/LHT-08-2025-0203",
     "openAccess": false,
+    "citations": 0
+  },
+  {
+    "title": "Measuring library performance from Google Maps reviews: analysis code",
+    "type": "article",
+    "year": 2026,
+    "date": "September 2026",
+    "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+    "authors": "Vikrant Dubey, Purnima Kumari, Rajiv Ranjan Mishra, Virendra Kumar, Shweta Verma, Shilpi Verma",
+    "abstract": "Code that turns public Google Maps reviews into library performance indicators: cleaning of platform-generated text, sentiment scoring with validation against a second lexicon and star ratings, sentence-level classification into four service dimensions, and importance-performance analysis using both stated and derived importance.",
+    "doi": "10.5281/zenodo.22996234",
+    "url": "https://doi.org/10.5281/zenodo.22996234",
+    "openAccess": true,
+    "citations": 0
+  },
+  {
+    "title": "Transformer-Based Neural Language Model",
+    "type": "article",
+    "year": 2026,
+    "date": "September 2026",
+    "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+    "authors": "Vikrant Dubey",
+    "abstract": "",
+    "doi": "10.5281/zenodo.22993520",
+    "url": "https://doi.org/10.5281/zenodo.22993520",
+    "openAccess": true,
     "citations": 0
   },
   {
@@ -35,6 +61,19 @@
     "abstract": "An extended Technology Acceptance Model applied to ChatGPT, Gemini and Copilot use among Indian students and scholars — and what information literacy has to do with whether they trust the output.",
     "doi": "10.21124/tsp.2026.124.137",
     "url": "https://www.researchgate.net/publication/412326701_Information_Literacy_and_Acceptance_of_Generative_AI_among_University_Students_and_Research_Scholars_in_India_An_Extended_TAM_Study",
+    "openAccess": true,
+    "citations": 0
+  },
+  {
+    "title": "Dataset and Code for Automated Dewey Decimal Classification from Bibliographic Metadata",
+    "type": "article",
+    "year": 2026,
+    "date": "May 2026",
+    "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+    "authors": "Vikrant Dubey",
+    "abstract": "This repository contains the dataset and analysis code for the study 'Automated Dewey Decimal Classification from Bibliographic Metadata: A comparitive study of machine learning Models.' Bibliographic records were collected from the DOAJ API and labelled using an LCC-to-DDC crosswalk.",
+    "doi": "10.5281/zenodo.20487468",
+    "url": "https://doi.org/10.5281/zenodo.20487468",
     "openAccess": true,
     "citations": 0
   },
@@ -101,7 +140,7 @@
     "doi": "10.2139/ssrn.7308039",
     "url": "https://www.researchgate.net/publication/390406937_Evaluating_The_Digital_Performance_and_Accessibility_of_IIT_Library_Websites_Using_Google_Lighthouse",
     "openAccess": true,
-    "citations": 0
+    "citations": 1
   },
   {
     "title": "Evaluating the Digital Performance and Accessibility of IIT Library Websites (preprint)",
@@ -165,7 +204,7 @@
     "abstract": "Tokens as certificates of ownership and provenance for books, and what that would change about how a library manages its stock.",
     "doi": "10.2139/ssrn.5052287",
     "url": "https://www.researchgate.net/publication/386877847_Crypto_books_Revolutionizing_Library_Management_with_NFTs_and_Blockchain_Technology",
-    "openAccess": false,
+    "openAccess": true,
     "citations": 0
   },
   {
