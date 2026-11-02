@@ -1,5 +1,31 @@
 [
   {
+    "title": "CryptoBooks: next-generation library management with NFTs and blockchain technology",
+    "type": "article",
+    "year": 2026,
+    "date": "November 2026",
+    "venue": "Library Management",
+    "authors": "Vikrant Dubey, Shilpi Verma",
+    "abstract": "",
+    "doi": "10.1108/lm-07-2025-0099",
+    "url": "https://doi.org/10.1108/LM-07-2025-0099",
+    "openAccess": false,
+    "citations": 0
+  },
+  {
+    "title": "Code, data splits and predictions for: Predicting Dewey Decimal Classification Main Classes and Divisions from Bibliographic Metadata with a Fine-Tuned Transformer",
+    "type": "article",
+    "year": 2026,
+    "date": "November 2026",
+    "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+    "authors": "Vikrant Dubey, Shilpi Verma",
+    "abstract": "",
+    "doi": "10.5281/zenodo.23852490",
+    "url": "https://doi.org/10.5281/zenodo.23852490",
+    "openAccess": true,
+    "citations": 0
+  },
+  {
     "title": "A Data-Driven Exploration of Emerging Library Trends Using Topic Modeling",
     "type": "article",
     "year": 2026,
