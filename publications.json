@@ -6,11 +6,11 @@
     "date": "November 2026",
     "venue": "Library Management",
     "authors": "Vikrant Dubey, Shilpi Verma",
-    "abstract": "",
+    "abstract": "Purpose This study proposes CryptoBooks, a novel framework integrating cryptographic hashing and blockchain-based non-fungible tokens (NFTs) to ensure document authenticity, ownership and integrity in digital library environments. Design/methodology/approach A design science research approach is adopted to develop and demonstrate a prototype system combining SHA-512 hashing, InterPlanetary File…",
     "doi": "10.1108/lm-07-2025-0099",
     "url": "https://doi.org/10.1108/LM-07-2025-0099",
-    "openAccess": false,
-    "citations": 0
+    "openAccess": true,
+    "citations": 1
   },
   {
     "title": "Code, data splits and predictions for: Predicting Dewey Decimal Classification Main Classes and Divisions from Bibliographic Metadata with a Fine-Tuned Transformer",
@@ -179,7 +179,7 @@
     "doi": "10.2139/ssrn.7308039",
     "url": "https://www.researchgate.net/publication/390406937_Evaluating_The_Digital_Performance_and_Accessibility_of_IIT_Library_Websites_Using_Google_Lighthouse",
     "openAccess": true,
-    "citations": 1
+    "citations": 5
   },
   {
     "title": "Evaluating the Digital Performance and Accessibility of IIT Library Websites (preprint)",
